@@ -11,7 +11,6 @@ class TransactionForm extends StatefulWidget {
 
 class _TransactionFormState extends State<TransactionForm> {
   final titleController = TextEditingController();
-
   final amountController = TextEditingController();
 
   void submitData() {
@@ -26,6 +25,8 @@ class _TransactionFormState extends State<TransactionForm> {
       titleController.text,
       double.parse(amountController.text),
     );
+
+    Navigator.of(context).pop();
   }
 
   @override
