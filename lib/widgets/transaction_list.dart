@@ -10,39 +10,44 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: transactions.map((transaction) {
-        return Card(
-          child: ListTile(
-            title: Text(
-              transaction.title,
-              overflow: TextOverflow.ellipsis,
-            ),
-            subtitle: Text(
-              DateFormat('MMM dd, yyyy').format(transaction.date),
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-            leading: Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 15,
-              ),
-              width: 100,
-              child: Text(
-                '\$${transaction.amount}',
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
-                  fontSize: 15,
+    return Container(
+      height: 400,
+      child: SingleChildScrollView(
+        child: Column(
+          children: transactions.map((transaction) {
+            return Card(
+              child: ListTile(
+                title: Text(
+                  transaction.title,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  DateFormat('MMM dd, yyyy').format(transaction.date),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+                leading: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 15,
+                  ),
+                  width: 100,
+                  child: Text(
+                    '\$${transaction.amount}',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        );
-      }).toList(),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 }
