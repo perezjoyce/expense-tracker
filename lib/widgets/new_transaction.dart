@@ -44,11 +44,25 @@ class _NewTransactionState extends State<NewTransaction> {
     ),
   ];
 
+  void _addNewTransaction(String title, double amount) {
+    final newTransaction = Transaction(
+      id: DateTime.now().toString(),
+      title: title,
+      amount: amount,
+      date: DateTime.now(),
+    );
+
+    setState(() {
+      //we didn't change the pointer (i.e., transactions), just the value/list itself
+      transactions.add(newTransaction);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransactionForm(),
+        TransactionForm(_addNewTransaction),
         TransactionList(transactions),
       ],
     );
