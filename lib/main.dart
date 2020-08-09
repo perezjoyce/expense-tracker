@@ -53,18 +53,18 @@ class MyHomePage extends StatelessWidget {
       amount: 8000.80,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: ' t6',
-      title: 'water bill',
-      amount: 456.11,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't7',
-      title: 'kid\s schooling',
-      amount: 30000,
-      date: DateTime.now(),
-    )
+    // Transaction(
+    //   id: ' t6',
+    //   title: 'water bill',
+    //   amount: 456.11,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't7',
+    //   title: 'kid\s schooling',
+    //   amount: 30000,
+    //   date: DateTime.now(),
+    // )
   ];
 
   @override
@@ -74,11 +74,43 @@ class MyHomePage extends StatelessWidget {
         title: Text('Expense Tracker'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Card(
             child: Text('Charat'),
+          ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: 'Enter title',
+                      labelText: 'Name *',
+                    ),
+                    autocorrect: true,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: 'Enter amount',
+                      labelText: 'Amount *',
+                    ),
+                    autocorrect: true,
+                  ),
+                  RaisedButton(
+                    color: Colors.indigo,
+                    textColor: Colors.white,
+                    onPressed: () {},
+                    child: Text('Add entry'),
+                  )
+                ],
+              ),
+            ),
           ),
           Column(
             // children: transactions.map((transaction) {
@@ -132,7 +164,9 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   leading: Container(
-                    padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15,
+                    ),
                     width: 100,
                     child: Text(
                       '\$${transaction.amount}',
