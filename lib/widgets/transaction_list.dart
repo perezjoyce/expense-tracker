@@ -19,6 +19,9 @@ class TransactionList extends StatelessWidget {
               title: Text(
                 transactions[index].title,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Colors.black87,
+                ),
               ),
               subtitle: Text(
                 DateFormat('MMM dd, yyyy').format(transactions[index].date),
@@ -37,7 +40,7 @@ class TransactionList extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.indigo,
+                    color: Theme.of(context).primaryColorDark,
                     fontSize: 15,
                   ),
                 ),
