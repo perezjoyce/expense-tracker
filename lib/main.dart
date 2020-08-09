@@ -67,6 +67,11 @@ class MyHomePage extends StatelessWidget {
     // )
   ];
 
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,6 +98,8 @@ class MyHomePage extends StatelessWidget {
                       labelText: 'Name *',
                     ),
                     autocorrect: true,
+                    controller: titleController,
+                    // onChanged: (val) { titleInput = val; }
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -101,54 +108,22 @@ class MyHomePage extends StatelessWidget {
                       labelText: 'Amount *',
                     ),
                     autocorrect: true,
+                    controller: amountController,
+                    // onChanged: (val) { amountInput = val; }
                   ),
                   RaisedButton(
                     color: Colors.indigo,
                     textColor: Colors.white,
-                    onPressed: () {},
                     child: Text('Add entry'),
+                    onPressed: () {
+                      print(titleController.text);
+                    },
                   )
                 ],
               ),
             ),
           ),
           Column(
-            // children: transactions.map((transaction) {
-            //   return Card(
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //       children: <Widget>[
-            //         Container(
-            //           padding: EdgeInsets.symmetric(vertical: 30),
-            //           child: Text(
-            //             '\$${transaction.amount}',
-            //             style: TextStyle(
-            //               fontWeight: FontWeight.bold,
-            //               color: Colors.indigo,
-            //               fontSize: 15,
-            //             ),
-            //           ),
-            //         ),
-            //         Column(
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: <Widget>[
-            //             Text(
-            //               transaction.title,
-            //               overflow: TextOverflow.ellipsis,
-            //             ),
-            //             Text(
-            //               DateFormat('MMM dd, yyyy').format(transaction.date),
-            //               style: TextStyle(
-            //                 fontSize: 10,
-            //                 color: Colors.grey,
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   );
-            // }).toList(),
             children: transactions.map((transaction) {
               return Card(
                 child: ListTile(
