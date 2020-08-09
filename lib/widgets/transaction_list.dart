@@ -15,19 +15,20 @@ class TransactionList extends StatelessWidget {
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
-                Text(
-                  'No transactions added yet',
-                  // ignore: deprecated_member_use
-                  style: Theme.of(context).textTheme.title,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
                 Container(
+                  height: 400,
                   child: Image.asset(
-                    'assets/images/waiting.png',
+                    'assets/images/savings.gif',
                     fit: BoxFit.cover,
                   ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'No expenses yet. Way to go!',
+                  // ignore: deprecated_member_use
+                  style: Theme.of(context).textTheme.title,
                 ),
               ],
             )
