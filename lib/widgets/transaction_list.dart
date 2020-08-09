@@ -11,7 +11,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400, //Parent sets the height of list view
+      height: 500, //Parent sets the height of list view
       child: ListView.builder(
         itemBuilder: (ctx, index) {
           return Card(
@@ -19,9 +19,11 @@ class TransactionList extends StatelessWidget {
               title: Text(
                 transactions[index].title,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: Colors.black87,
-                ),
+                // ignore: deprecated_member_use
+                style: Theme.of(context).textTheme.title,
+                // style: TextStyle(
+                //   color: Colors.black87,
+                // ),
               ),
               subtitle: Text(
                 DateFormat('MMM dd, yyyy').format(transactions[index].date),
@@ -32,16 +34,16 @@ class TransactionList extends StatelessWidget {
               ),
               leading: Container(
                 padding: EdgeInsets.symmetric(
-                  vertical: 15,
+                  vertical: 10,
                 ),
-                width: 100,
+                width: 120,
                 child: Text(
                   '\$${transactions[index].amount.toStringAsFixed(2)}',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColorDark,
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                 ),
               ),

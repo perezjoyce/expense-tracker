@@ -14,10 +14,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expense Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        accentColor: Colors.teal,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.deepPurple,
+          accentColor: Colors.teal,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'OpenSans',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  // ignore: deprecated_member_use
+                  title: TextStyle(
+                    fontFamily: 'Quicksand',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          )),
       home: MyHomePage(),
     );
   }
@@ -93,7 +110,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense Tracker'),
+        title: Text(
+          'Expense Tracker',
+          // style: TextStyle(
+          //   fontFamily: 'Quicksand',
+          // ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
