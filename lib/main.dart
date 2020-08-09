@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expense Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.indigo,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -83,20 +83,31 @@ class MyHomePage extends StatelessWidget {
             children: transactions.map((transaction) {
               return Card(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Container(
+                      padding: EdgeInsets.symmetric(vertical: 30),
                       child: Text(
                         transaction.amount.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(transaction.title),
+                        Text(
+                          transaction.title,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         Text(
                           transaction.date.toString(),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               );
