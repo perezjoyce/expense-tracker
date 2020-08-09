@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './class/transaction.dart';
 
@@ -104,7 +105,7 @@ class MyHomePage extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          transaction.date.toString(),
+                          DateFormat('MMM dd, yyyy').format(transaction.date),
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.grey,
