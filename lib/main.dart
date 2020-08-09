@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
     ),
     Transaction(
       id: 't2',
-      title: 'mechanical keyboard',
+      title: 'mechanical keyboard mechanical keyboard mechanical keyboard mechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboard',
       amount: 3456.50,
       date: DateTime.now(),
     ),
@@ -81,39 +81,69 @@ class MyHomePage extends StatelessWidget {
             child: Text('Charat'),
           ),
           Column(
+            // children: transactions.map((transaction) {
+            //   return Card(
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //       children: <Widget>[
+            //         Container(
+            //           padding: EdgeInsets.symmetric(vertical: 30),
+            //           child: Text(
+            //             '\$${transaction.amount}',
+            //             style: TextStyle(
+            //               fontWeight: FontWeight.bold,
+            //               color: Colors.indigo,
+            //               fontSize: 15,
+            //             ),
+            //           ),
+            //         ),
+            //         Column(
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: <Widget>[
+            //             Text(
+            //               transaction.title,
+            //               overflow: TextOverflow.ellipsis,
+            //             ),
+            //             Text(
+            //               DateFormat('MMM dd, yyyy').format(transaction.date),
+            //               style: TextStyle(
+            //                 fontSize: 10,
+            //                 color: Colors.grey,
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ],
+            //     ),
+            //   );
+            // }).toList(),
             children: transactions.map((transaction) {
               return Card(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 30),
-                      child: Text(
-                        '\$${transaction.amount}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.indigo,
-                          fontSize: 15,
-                        ),
+                child: ListTile(
+                  title: Text(
+                    transaction.title,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: Text(
+                    DateFormat('MMM dd, yyyy').format(transaction.date),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  leading: Container(
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    width: 100,
+                    child: Text(
+                      '\$${transaction.amount}',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo,
+                        fontSize: 15,
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          transaction.title,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          DateFormat('MMM dd, yyyy').format(transaction.date),
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
               );
             }).toList(),
