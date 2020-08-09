@@ -11,17 +11,17 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
-      child: ListView(
-        children: transactions.map((transaction) {
+      height: 400, //Parent sets the height of list view
+      child: ListView.builder(
+        itemBuilder: (ctx, index) {
           return Card(
             child: ListTile(
               title: Text(
-                transaction.title,
+                transactions[index].title,
                 overflow: TextOverflow.ellipsis,
               ),
               subtitle: Text(
-                DateFormat('MMM dd, yyyy').format(transaction.date),
+                DateFormat('MMM dd, yyyy').format(transactions[index].date),
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.grey,
@@ -33,7 +33,7 @@ class TransactionList extends StatelessWidget {
                 ),
                 width: 100,
                 child: Text(
-                  '\$${transaction.amount}',
+                  '\$${transactions[index].amount}',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -44,7 +44,8 @@ class TransactionList extends StatelessWidget {
               ),
             ),
           );
-        }).toList(),
+        },
+        itemCount: transactions.length,
       ),
     );
   }
