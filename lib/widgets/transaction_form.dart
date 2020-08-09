@@ -7,6 +7,20 @@ class TransactionForm extends StatelessWidget {
 
   TransactionForm(this._addNewTransaction);
 
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
+    _addNewTransaction(
+      titleController.text,
+      double.parse(amountController.text),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -15,39 +29,35 @@ class TransactionForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            TextFormField(
+            TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
                 hintText: 'Enter title',
                 labelText: 'Name *',
               ),
               autocorrect: true,
+              keyboardType: TextInputType.text,
               controller: titleController,
+              onSubmitted: (_) => submitData(), //use _ when you won't use the argument
               // onChanged: (val) { titleInput = val; }
             ),
-            TextFormField(
+            TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
                 hintText: 'Enter amount',
                 labelText: 'Amount *',
               ),
               autocorrect: true,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
               controller: amountController,
+              onSubmitted: (_) => submitData(),
               // onChanged: (val) { amountInput = val; }
             ),
             RaisedButton(
               color: Colors.indigo,
               textColor: Colors.white,
               child: Text('Add entry'),
-              onPressed: () {
-                print(titleController.text);
-                print(amountController.text);
-                _addNewTransaction(
-                  titleController.text,
-                  double.parse(amountController.text),
-                );
-              },
+              onPressed: submitData,
             )
           ],
         ),

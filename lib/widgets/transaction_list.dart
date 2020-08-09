@@ -33,7 +33,7 @@ class TransactionList extends StatelessWidget {
                 ),
                 width: 100,
                 child: Text(
-                  '\$${transactions[index].amount}',
+                  '\$${transactions[index].amount.toStringAsFixed(2)}',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
