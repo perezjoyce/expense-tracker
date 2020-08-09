@@ -61,10 +61,13 @@ class _TransactionFormState extends State<TransactionForm> {
               onSubmitted: (_) => submitData(),
               // onChanged: (val) { amountInput = val; }
             ),
+            SizedBox(
+              height: 10,
+            ),
             RaisedButton(
               color: Colors.indigo,
               textColor: Colors.white,
-              child: Text('Add entry'),
+              child: Text('ADD EXPENSE'),
               onPressed: submitData,
             )
           ],
