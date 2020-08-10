@@ -11,7 +11,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500, //Parent sets the height of list view
+      height: 400, //Parent sets the height of list view
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[

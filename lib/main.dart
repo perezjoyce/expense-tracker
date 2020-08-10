@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './widgets/transaction_list.dart';
 import './widgets/transaction_form.dart';
+import './widgets/chart.dart';
+import './widgets/transaction_list.dart';
 import './models/transaction.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'OpenSans',
           textTheme: ThemeData.light().textTheme.copyWith(
-                title: TextStyle(
+                headline6: TextStyle(
                   fontFamily: 'OpenSans',
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -46,38 +47,47 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> transactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'mcbook pro',
-    //   amount: 150000,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'mechanical keyboard mechanical keyboard mechanical keyboard mechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboardmechanical keyboard',
-    //   amount: 3456.50,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'weekly groceries',
-    //   amount: 1450.25,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't4',
-    //   title: 'house bill',
-    //   amount: 1100,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't5',
-    //   title: 'electricity bill',
-    //   amount: 8000.80,
-    //   date: DateTime.now(),
-    // ),
+  final List<Transaction> _transactions = [
+    Transaction(
+      id: 't1',
+      title: 'mcbook pro',
+      amount: 150000,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'mechanical keyboard',
+      amount: 3456.50,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'weekly groceries',
+      amount: 1450.25,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'house bill',
+      amount: 1100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'electricity bill',
+      amount: 8000.80,
+      date: DateTime.now(),
+    ),
   ];
+
+  //GETTER for recent transactions to be displayed in chart
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((transaction) {
+      return transaction.date.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
+    }).toList();
+  }
 
   void _addNewTransaction(String title, double amount) {
     final newTransaction = Transaction(
@@ -89,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       //we didn't change the pointer (i.e., transactions), just the value/list itself
-      transactions.add(newTransaction);
+      _transactions.add(newTransaction);
     });
   }
 
@@ -127,10 +137,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Card(
-            child: Text('Charat'),
-          ),
-          TransactionList(transactions),
+          Chart(_recentTransactions),
+          TransactionList(_transactions),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
