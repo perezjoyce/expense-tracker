@@ -11,7 +11,7 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('\$${total.toStringAsFixed(0)}'),
+        Text(day),
         SizedBox(
           height: 4,
         ),
@@ -26,7 +26,8 @@ class ChartBar extends StatelessWidget {
                     color: Colors.grey,
                     width: 1.0,
                   ),
-                  color: Color.fromARGB(220, 220, 220, 1),
+                  // color: Color.fromARGB(1, 1, 1, 1),
+                  color: Theme.of(context).primaryColorLight,
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
@@ -45,7 +46,12 @@ class ChartBar extends StatelessWidget {
         SizedBox(
           height: 4,
         ),
-        Text(day),
+        Text(
+          '\$${total.toStringAsFixed(0)}',
+          style: TextStyle(
+            fontSize: 10,
+          ),
+        ),
       ],
     );
   }
