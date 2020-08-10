@@ -43,8 +43,8 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(groupedTransactionValues);
-    return Container(
-      margin: EdgeInsets.all(30),
+    return Padding(
+      padding: EdgeInsets.all(30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: groupedTransactionValues.map((data) {
