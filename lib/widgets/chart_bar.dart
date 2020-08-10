@@ -11,9 +11,14 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(day),
+        Text(
+          day,
+          style: TextStyle(
+            fontSize: 10,
+          ),
+        ),
         SizedBox(
-          height: 4,
+          height: 5,
         ),
         Container(
           height: 60,
@@ -44,7 +49,7 @@ class ChartBar extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 4,
+          height: 5,
         ),
         Text(
           '\$${total.toStringAsFixed(0)}',
