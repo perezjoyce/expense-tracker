@@ -13,7 +13,7 @@ class _TransactionFormState extends State<TransactionForm> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
@@ -27,6 +27,15 @@ class _TransactionFormState extends State<TransactionForm> {
     );
 
     Navigator.of(context).pop();
+  }
+
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime.now(),
+    );
   }
 
   @override
@@ -46,7 +55,7 @@ class _TransactionFormState extends State<TransactionForm> {
               autocorrect: true,
               keyboardType: TextInputType.text,
               controller: titleController,
-              onSubmitted: (_) => submitData(), //use _ when you won't use the argument
+              onSubmitted: (_) => _submitData(), //use _ when you won't use the argument
               // onChanged: (val) { titleInput = val; }
             ),
             TextField(
@@ -58,7 +67,7 @@ class _TransactionFormState extends State<TransactionForm> {
               autocorrect: true,
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               controller: amountController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               // onChanged: (val) { amountInput = val; }
             ),
             SizedBox(
@@ -70,7 +79,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 FlatButton(
                   textColor: Theme.of(context).primaryColor,
                   child: Text('Choose Date'),
-                  onPressed: () {},
+                  onPressed: _presentDatePicker,
                 ),
               ],
             ),
@@ -89,7 +98,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 // ignore: deprecated_member_use
                 style: Theme.of(context).appBarTheme.textTheme.title,
               ),
-              onPressed: submitData,
+              onPressed: _submitData,
             )
           ],
         ),
