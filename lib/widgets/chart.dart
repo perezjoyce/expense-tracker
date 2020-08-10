@@ -30,7 +30,7 @@ class Chart extends StatelessWidget {
         'day': DateFormat.E().format(weekday).substring(0, 3),
         'amount': total,
       };
-    });
+    }).reversed.toList();
   }
 
   //Get spendingPercentageOfTotal for chart bar usng fold which is equivalent t reduced fuction in js
