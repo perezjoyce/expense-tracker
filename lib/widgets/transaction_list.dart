@@ -16,10 +16,9 @@ class TransactionList extends StatelessWidget {
           ? Column(
               children: <Widget>[
                 Container(
-                  height: 400,
                   child: Image.asset(
                     'assets/images/savings.gif',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ),
                 ),
                 SizedBox(

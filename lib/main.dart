@@ -48,36 +48,36 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'mcbook pro',
-      amount: 150000,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'mechanical keyboard',
-      amount: 3456.50,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'weekly groceries',
-      amount: 1450.25,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'house bill',
-      amount: 1100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't5',
-      title: 'electricity bill',
-      amount: 8000.80,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'mcbook pro',
+    //   amount: 150000,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'mechanical keyboard',
+    //   amount: 3456.50,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't3',
+    //   title: 'weekly groceries',
+    //   amount: 1450.25,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't4',
+    //   title: 'house bill',
+    //   amount: 1100,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't5',
+    //   title: 'electricity bill',
+    //   amount: 8000.80,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   //GETTER for recent transactions to be displayed in chart
