@@ -148,7 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Chart(_recentTransactions),
-          TransactionList(_transactions, _deleteTransaction),
+          Expanded(
+            child: TransactionList(_transactions, _deleteTransaction),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400, //Parent sets the height of list view
+      height: 450, //Parent sets the height of list view
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
@@ -79,7 +79,8 @@ class TransactionList extends StatelessWidget {
                       icon: Icon(
                         Icons.delete,
                       ),
-                      color: Theme.of(context).errorColor,
+                      // color: Theme.of(context).errorColor,
+                      color: Colors.red[200],
                       onPressed: () => deleteTransaction(transactions[index].id),
                     ),
                   ),

@@ -16,7 +16,7 @@ class _TransactionFormState extends State<TransactionForm> {
   DateTime _selectedDate;
 
   void _submitData() {
-    if (_amountController.text.isNotEmpty) {
+    if (_amountController.text.isEmpty) {
       return;
     }
 
