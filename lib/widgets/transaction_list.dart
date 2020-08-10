@@ -35,7 +35,30 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 5,
+                    horizontal: 10,
+                  ),
                   child: ListTile(
+                    // leading: CircleAvatar(
+                    //   radius: 30,
+                    //   child: Text('test'),
+                    // ),
+                    leading: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                      ),
+                      width: 120,
+                      child: Text(
+                        '\$${transactions[index].amount.toStringAsFixed(2)}',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColorDark,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                     title: Text(
                       transactions[index].title,
                       overflow: TextOverflow.ellipsis,
@@ -50,21 +73,6 @@ class TransactionList extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
-                      ),
-                    ),
-                    leading: Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                      ),
-                      width: 120,
-                      child: Text(
-                        '\$${transactions[index].amount.toStringAsFixed(2)}',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColorDark,
-                          fontSize: 18,
-                        ),
                       ),
                     ),
                   ),
