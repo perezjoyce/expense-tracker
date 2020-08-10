@@ -64,10 +64,29 @@ class _TransactionFormState extends State<TransactionForm> {
             SizedBox(
               height: 10,
             ),
-            RaisedButton(
-              color: Colors.indigo,
-              textColor: Colors.white,
-              child: Text('ADD EXPENSE'),
+            Row(
+              children: <Widget>[
+                Text('No Date Chosen'),
+                FlatButton(
+                  child: Text('Choose Date'),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            MaterialButton(
+              height: 60,
+              minWidth: double.infinity,
+              color: Theme.of(context).accentColor,
+              padding: EdgeInsets.all(20),
+              shape: StadiumBorder(),
+              child: Text(
+                'Add Expense',
+                // ignore: deprecated_member_use
+                style: Theme.of(context).appBarTheme.textTheme.title,
+              ),
               onPressed: submitData,
             )
           ],

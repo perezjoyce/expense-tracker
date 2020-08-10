@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
                     fontFamily: 'Quicksand',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
           )),
