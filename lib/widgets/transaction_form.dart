@@ -68,6 +68,7 @@ class _TransactionFormState extends State<TransactionForm> {
               children: <Widget>[
                 Text('No Date Chosen'),
                 FlatButton(
+                  textColor: Theme.of(context).primaryColor,
                   child: Text('Choose Date'),
                   onPressed: () {},
                 ),
@@ -80,6 +81,7 @@ class _TransactionFormState extends State<TransactionForm> {
               height: 60,
               minWidth: double.infinity,
               color: Theme.of(context).accentColor,
+              textColor: Theme.of(context).textTheme.button.color,
               padding: EdgeInsets.all(20),
               shape: StadiumBorder(),
               child: Text(
