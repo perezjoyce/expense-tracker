@@ -51,12 +51,15 @@ class ChartBar extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        FittedBox(
-          //FittedBox keeps text within available space
-          child: Text(
-            '\$${total.toStringAsFixed(0)}',
-            style: TextStyle(
-              fontSize: 10,
+        Container(
+          height: 15,
+          child: FittedBox(
+            //FittedBox keeps text within available space
+            child: Text(
+              '\$${total.toStringAsFixed(0)}',
+              style: TextStyle(
+                fontSize: 10,
+              ),
             ),
           ),
         ),
